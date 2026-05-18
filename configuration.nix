@@ -90,7 +90,6 @@
   programs.river-classic.enable = true;
 
   programs.direnv.enable = true;
-  programs.steam.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -151,7 +150,6 @@
     pandoc
     keepassxc
     cudaPackages.nsight_systems
-    kdePackages.extra-cmake-modules
   ];
 
   fonts.packages = with pkgs; [
@@ -188,11 +186,6 @@
     "nix-command"
     "flakes"
   ];
-
-  programs.nix-ld = {
-    enable = true;
-    libraries = pkgs.steam-run.args.multiPkgs pkgs;
-  };
 
   programs.gnupg.agent = {
     enable = true;
