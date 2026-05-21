@@ -78,8 +78,11 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
   };
+
+  programs.nix-ld.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -96,6 +99,8 @@
   environment.systemPackages = with pkgs; [
     vlc
     vim
+    pnpm
+    rust-analyzer
     wget
     kitty
     alacritty
@@ -150,6 +155,7 @@
     pandoc
     keepassxc
     cudaPackages.nsight_systems
+    claude-code
   ];
 
   fonts.packages = with pkgs; [
