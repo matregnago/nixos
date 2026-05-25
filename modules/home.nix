@@ -7,6 +7,8 @@
     ./starship.nix
     ./tmux.nix
     ./waybar.nix
+    ./btop.nix
+    ./bat.nix
   ];
   home.packages = with pkgs; [
     vlc
@@ -29,7 +31,6 @@
     glow
     thunderbird
     pass
-
     nodejs
     wl-clipboard
     lazygit

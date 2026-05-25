@@ -1,7 +1,6 @@
 { ... }:
-
 {
-  programs.starship = {
+  programs.bat = {
     enable = true;
   };
 }

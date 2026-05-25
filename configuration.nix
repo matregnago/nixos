@@ -109,7 +109,6 @@
     fd
     gcc
     pkg-config
-    btop
     gnupg
     gnumake
     (python3.withPackages (ps: [ ps.pip ]))
