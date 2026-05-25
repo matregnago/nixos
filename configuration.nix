@@ -29,6 +29,15 @@
     "8.8.8.8"
   ];
 
+  networking.extraHosts = ''
+    127.0.0.1 youtube.com
+    127.0.0.1 www.youtube.com
+    127.0.0.1 reddit.com
+    127.0.0.1 www.reddit.com
+    127.0.0.1 hltv.org
+    127.0.0.1 www.hltv.org
+  '';
+
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
@@ -98,6 +107,7 @@
 
   environment.systemPackages = with pkgs; [
     vlc
+    telegram-desktop
     vim
     pnpm
     rust-analyzer
@@ -139,7 +149,15 @@
     swaylock
     # External flake packages
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-    inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher
+    (inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
+      additionalLibs = [
+        jemalloc
+        libxtst
+        libxkbcommon
+        libxt
+        libxinerama
+      ];
+    })
 
     nerd-fonts.jetbrains-mono
 
@@ -156,6 +174,7 @@
     keepassxc
     cudaPackages.nsight_systems
     claude-code
+    jdk25
   ];
 
   fonts.packages = with pkgs; [
