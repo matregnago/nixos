@@ -87,7 +87,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker"
+      "podman"
     ];
   };
 
@@ -124,8 +124,6 @@
     postgresql_17
     postgresql_17.lib
     libpq
-    docker
-
   ];
 
   fonts.packages = with pkgs; [
@@ -144,8 +142,13 @@
     symbola
   ];
 
-  virtualisation.docker = {
-    enable = true;
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
+    };
   };
 
   services.postgresql = {

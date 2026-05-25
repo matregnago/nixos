@@ -9,16 +9,15 @@
     ./waybar.nix
     ./btop.nix
     ./bat.nix
+    ./ssh.nix
+    ./kitty.nix
   ];
   home.packages = with pkgs; [
     vlc
     telegram-desktop
-    kitty
     alacritty
-    spotify
     discord
     obsidian
-    notion
     zed-editor
     emacs
     pandoc
@@ -27,14 +26,11 @@
     claude-code
     jdk25
     lsof
-    hugo
-    glow
     thunderbird
     pass
     nodejs
     wl-clipboard
     lazygit
-    lazydocker
     stremio-linux-shell
     stripe-cli
     github-copilot-cli
