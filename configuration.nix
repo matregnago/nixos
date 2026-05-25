@@ -96,59 +96,23 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Install niri
-  programs.niri.enable = true;
-
-  programs.river-classic.enable = true;
-
   programs.direnv.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vlc
-    telegram-desktop
     vim
-    pnpm
-    rust-analyzer
     wget
-    kitty
-    alacritty
-    spotify
-    discord
-    obsidian
-    notion
-    zed-editor
-    emacs
     ripgrep
     coreutils
     fd
-    clang
-    rustup
-    nodejs
     gcc
     pkg-config
-    (python3.withPackages (ps: [ ps.pip ]))
-    gnupg
-    pass
-    wl-clipboard
-    rust-analyzer
-    lazygit
-    lazydocker
-    stremio-linux-shell
-    stripe-cli
-    github-copilot-cli
-    gnumake
-    nil
-    nixd
-    vscode
-    gh
     btop
-    fuzzel
-    mako
-    swaylock
-    # External flake packages
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+    gnupg
+    gnumake
+    (python3.withPackages (ps: [ ps.pip ]))
     (inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
       additionalLibs = [
         jemalloc
@@ -158,23 +122,11 @@
         libxinerama
       ];
     })
-
-    nerd-fonts.jetbrains-mono
-
-    lsof
-    hugo
-    glow
-    thunderbird
     postgresql_17
     postgresql_17.lib
     libpq
     docker
-    shellcheck
-    pandoc
-    keepassxc
-    cudaPackages.nsight_systems
-    claude-code
-    jdk25
+
   ];
 
   fonts.packages = with pkgs; [
@@ -207,10 +159,20 @@
     LIBRARY_PATH = "${pkgs.postgresql_17.lib}/lib";
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    extra-substituters = [
+      "https://cuda-maintainers.cachix.org"
+      "https://nix-community.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
 
   programs.gnupg.agent = {
     enable = true;
@@ -218,6 +180,6 @@
     enableSSHSupport = true;
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 
 }
