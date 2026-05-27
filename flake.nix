@@ -10,8 +10,12 @@
 
     prismlauncher = {
       url = "github:PrismLauncher/PrismLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -19,6 +23,7 @@
       self,
       nixpkgs,
       home-manager,
+      nixvim,
       ...
     }@inputs:
     let
@@ -27,6 +32,7 @@
         home-manager.useUserPackages = true;
         home-manager.users."${username}" = {
           imports = [
+            nixvim.homeModules.nixvim
             ./modules/home.nix
           ];
         };

@@ -11,6 +11,7 @@
     ./bat.nix
     ./ssh.nix
     ./kitty.nix
+    ./nixvim/default.nix
   ];
   home.packages = with pkgs; [
     vlc
