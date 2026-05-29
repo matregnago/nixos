@@ -17,5 +17,7 @@
     ./plugins/trouble.nix
     # Format
     ./plugins/conform.nix
+    # Icons for telescope (just to clear a warning)
+    ./plugins/web-devicons.nix
   ];
 }

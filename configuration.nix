@@ -101,6 +101,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
+
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -112,15 +114,6 @@
     gnupg
     gnumake
     (python3.withPackages (ps: [ ps.pip ]))
-    (inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
-      additionalLibs = [
-        jemalloc
-        libxtst
-        libxkbcommon
-        libxt
-        libxinerama
-      ];
-    })
     postgresql_17
     postgresql_17.lib
     libpq
@@ -156,6 +149,10 @@
     package = pkgs.postgresql_17;
   };
 
+  services.tailscale = {
+    enable = true;
+  };
+
   environment.variables = {
     PKG_CONFIG_PATH = "${pkgs.postgresql_17}/lib/pkgconfig";
     LIBRARY_PATH = "${pkgs.postgresql_17.lib}/lib";
@@ -182,6 +179,6 @@
     enableSSHSupport = true;
   };
 
-  system.stateVersion = "26.05";
+  system.stateVersion = "25.05";
 
 }

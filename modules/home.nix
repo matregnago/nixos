@@ -40,9 +40,10 @@
     vscode
     gh
     rustup
+    unixtools.netstat
   ];
 
   programs.home-manager.enable = true;
 
-  home.stateVersion = "26.05";
+  home.stateVersion = "25.11";
 }
