@@ -32,8 +32,6 @@
   networking.extraHosts = ''
     127.0.0.1 youtube.com
     127.0.0.1 www.youtube.com
-    127.0.0.1 reddit.com
-    127.0.0.1 www.reddit.com
     127.0.0.1 hltv.org
     127.0.0.1 www.hltv.org
   '';
@@ -117,6 +115,8 @@
     postgresql_17
     postgresql_17.lib
     libpq
+    podman-compose
+    openssl
   ];
 
   fonts.packages = with pkgs; [
