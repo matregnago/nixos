@@ -120,6 +120,7 @@
     podman-compose
     openssl
     pkgs.cudaPackages_13.nsight_systems
+    xwayland-satellite
   ];
 
   fonts.packages = with pkgs; [
@@ -181,6 +182,8 @@
     pinentryPackage = pkgs.pinentry-curses;
     enableSSHSupport = true;
   };
+
+  programs.niri.enable = true;
 
   system.stateVersion = "25.05";
 

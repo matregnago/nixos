@@ -13,6 +13,7 @@
     ./kitty.nix
     ./nixvim/default.nix
     ./bash.nix
+    ./niri/default.nix
   ];
   home.packages = with pkgs; [
     vlc
@@ -56,6 +57,7 @@
     chromium
     fastfetch
     blender
+    xwayland-satellite # xwayland support
   ];
 
   programs.home-manager.enable = true;
