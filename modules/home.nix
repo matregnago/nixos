@@ -12,11 +12,11 @@
     ./ssh.nix
     ./kitty.nix
     ./nixvim/default.nix
+    ./bash.nix
   ];
   home.packages = with pkgs; [
     vlc
     telegram-desktop
-    alacritty
     discord
     obsidian
     zed-editor
@@ -41,6 +41,21 @@
     gh
     rustup
     unixtools.netstat
+    zathura
+    busybox
+    (prismlauncher.override {
+      additionalLibs = [
+        jemalloc
+        libxtst
+        libxkbcommon
+        libxt
+        libxinerama
+      ];
+    })
+    vscode-json-languageserver
+    chromium
+    fastfetch
+    blender
   ];
 
   programs.home-manager.enable = true;
