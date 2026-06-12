@@ -10,8 +10,9 @@
     ./bat.nix
     ./ssh.nix
     ./kitty.nix
-    ./nixvim/default.nix
     ./bash.nix
+    ./spicetify.nix
+    ./nixvim/default.nix
     ./niri/default.nix
     ./noctalia/default.nix
   ];
