@@ -96,7 +96,7 @@ showCapsule = false
 enabled = false
 
 [general]
-avatarImage = "~/avatar.jpg"
+avatarImage = "~/nixos-config/cat.jpg"
 radiusRatio = 0.20000000000000001
 
 [location]
@@ -201,11 +201,11 @@ mode = "dark"
 source = "builtin"
 
 [wallpaper]
-directory = "~/nixos-config/wallpapers"
+directory = "~/nixos-config/images/wallpapers"
 enabled = true
 
     [wallpaper.default]
-    path = "~/nixos-config/wallpapers/hollow-knight.jpg"
+    path = "~/nixos-config/wallpapers/images/penguin.webp"
 
 [widget.battery]
 display_mode = "graphic"
