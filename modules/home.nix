@@ -6,7 +6,6 @@
     ./git.nix
     ./starship.nix
     ./tmux.nix
-    ./waybar.nix
     ./btop.nix
     ./bat.nix
     ./ssh.nix
@@ -14,6 +13,7 @@
     ./nixvim/default.nix
     ./bash.nix
     ./niri/default.nix
+    ./noctalia/default.nix
   ];
   home.packages = with pkgs; [
     vlc

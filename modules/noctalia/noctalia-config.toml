@@ -1,0 +1,226 @@
+[bar]
+density = "compact"
+marginHorizontal = 5
+marginVertical = 5
+outerCorners = true
+position = "top"
+showCapsule = false
+
+    [bar.widgets]
+    center = [ "clock", "date" ]
+    end = [ "media", "notifications", "network", "volume", "battery", "session" ]
+    margin_edge = 0
+    margin_ends = 0
+    start = [ "control-center", "workspaces", "sysmon", "weather" ]
+    widget_spacing = 12
+
+        [[bar.widgets.left]]
+        colorizeDistroLogo = false
+        colorizeSystemIcon = "primary"
+        enableColorization = true
+        icon = "noctalia"
+        id = "ControlCenter"
+        useDistroLogo = true
+
+        [[bar.widgets.left]]
+        characterCount = 2
+        colorizeIcons = true
+        emptyColor = "none"
+        enableScrollWheel = true
+        focusedColor = "primary"
+        followFocusedScreen = false
+        fontWeight = "bold"
+        groupedBorderOpacity = 1
+        hideUnoccupied = false
+        iconScale = 0.80000000000000004
+        id = "Workspace"
+        labelMode = "index"
+        occupiedColor = "none"
+        pillSize = 0.69999999999999996
+        showApplications = false
+        showApplicationsHover = false
+        showBadge = true
+        showLabelsOnlyWhenOccupied = false
+        unfocusedIconsOpacity = 1
+
+        [[bar.widgets.right]]
+        compactMode = false
+        hideMode = "hidden"
+        hideWhenIdle = false
+        id = "MediaMini"
+        maxWidth = 145
+        panelShowAlbumArt = true
+        scrollingMode = "hover"
+        showAlbumArt = true
+        showArtistFirst = true
+        showProgressRing = true
+        showVisualizer = false
+        textColor = "none"
+        useFixedWidth = false
+        visualizerType = "linear"
+
+        [[bar.widgets.right]]
+        blacklist = []
+        chevronColor = "none"
+        colorizeIcons = false
+        drawerEnabled = true
+        hidePassive = false
+        id = "Tray"
+        pinned = []
+
+        [[bar.widgets.right]]
+        displayMode = "onhover"
+        iconColor = "none"
+        id = "Volume"
+        middleClickCommand = "pwvucontrol || pavucontrol"
+        textColor = "none"
+
+        [[bar.widgets.right]]
+        hideWhenZero = false
+        hideWhenZeroUnread = false
+        iconColor = "none"
+        id = "NotificationHistory"
+        showUnreadBadge = true
+        unreadBadgeColor = "primary"
+
+        [[bar.widgets.right]]
+        deviceNativePath = "__default__"
+        displayMode = "graphic"
+        hideIfIdle = false
+        hideIfNotDetected = true
+        id = "Battery"
+        showNoctaliaPerformance = false
+        showPowerProfiles = false
+
+[dock]
+enabled = false
+
+[general]
+avatarImage = "~/avatar.jpg"
+radiusRatio = 0.20000000000000001
+
+[location]
+auto_locate = true
+monthBeforeDay = true
+name = "Porto Alegre, RS, Brazil"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 960.0
+    cy = 613.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 768.0
+    cy = 741.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 208.0
+    box_width = 288.0
+    cx = 960.0
+    cy = 356.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "clock"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 128.0
+    box_width = 336.0
+    cx = 960.0
+    cy = 828.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "media_player"
+
+[notifications]
+density = "compact"
+
+[plugins]
+enabled = []
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+[shell]
+screen_time_enabled = true
+
+    [shell.panel]
+    launcher_categories = false
+    launcher_session_search = true
+    open_near_click_control_center = true
+
+[theme]
+builtin = "Catppuccin"
+mode = "dark"
+source = "builtin"
+
+[wallpaper]
+directory = "~/nixos-config/wallpapers"
+enabled = true
+
+    [wallpaper.default]
+    path = "~/nixos-config/wallpapers/hollow-knight.jpg"
+
+[widget.battery]
+display_mode = "graphic"
+
+[widget.date]
+format = "{:%a, %d %b %y}"
+
+[widget.network]
+show_label = false
+
+[widget.sysmon]
+display = "text"
+
+[widget.volume]
+scroll_step = 1
+
+[widget.weather]
+show_condition = false
