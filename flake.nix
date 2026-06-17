@@ -20,6 +20,10 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-doom-emacs-unstraightened = {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,6 +34,7 @@
       nixvim,
       noctalia,
       spicetify-nix,
+      nix-doom-emacs-unstraightened,
       ...
     }@inputs:
     let
@@ -42,6 +47,7 @@
             nixvim.homeModules.nixvim
             noctalia.homeModules.default
             spicetify-nix.homeManagerModules.spicetify
+            nix-doom-emacs-unstraightened.homeModule
             ./modules/home.nix
           ];
         };

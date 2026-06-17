@@ -15,6 +15,7 @@
     ./nixvim/default.nix
     ./niri/default.nix
     ./noctalia/default.nix
+    ./doom-emacs/default.nix
   ];
   home.packages = with pkgs; [
     vlc
@@ -22,8 +23,6 @@
     discord
     obsidian
     zed-editor
-    emacs
-    pandoc
     keepassxc
     cudaPackages.nsight_systems
     claude-code
@@ -59,6 +58,7 @@
     fastfetch
     blender
     xwayland-satellite # xwayland support
+    fzf
   ];
 
   programs.home-manager.enable = true;
