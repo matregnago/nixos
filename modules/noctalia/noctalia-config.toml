@@ -205,7 +205,7 @@ directory = "~/nixos-config/images/wallpapers"
 enabled = true
 
     [wallpaper.default]
-    path = "~/nixos-config/wallpapers/images/penguin.webp"
+    path = "~/nixos-config/wallpapers/images/idk-tbh.png"
 
 [widget.battery]
 display_mode = "graphic"
