@@ -26,6 +26,7 @@
     keepassxc
     cudaPackages.nsight_systems
     claude-code
+    opencode
     jdk25
     lsof
     thunderbird
