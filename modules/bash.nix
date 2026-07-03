@@ -16,6 +16,7 @@
       eval "$(starship init bash)"
       eval "$(direnv hook bash)"
       [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+      export PATH="$HOME/.local/bin:$PATH"
     '';
   };
 }
