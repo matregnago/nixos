@@ -45,15 +45,6 @@
     unixtools.netstat
     zathura
     busybox
-    (prismlauncher.override {
-      additionalLibs = [
-        jemalloc
-        libxtst
-        libxkbcommon
-        libxt
-        libxinerama
-      ];
-    })
     vscode-json-languageserver
     chromium
     fastfetch
