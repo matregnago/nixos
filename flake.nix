@@ -24,7 +24,7 @@
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    opencode.url = "github:anomalyco/opencode";
+    opencode.url = "github:anomalyco/opencode/77429f59823c8c6df9cfee95d4c663043b017f46";
 
   };
 
