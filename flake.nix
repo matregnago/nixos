@@ -11,7 +11,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    claude-code.url = "github:sadjow/claude-code-nix";
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,8 +23,8 @@
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    opencode.url = "github:anomalyco/opencode/77429f59823c8c6df9cfee95d4c663043b017f46";
-
+    claude-code.url = "github:sadjow/claude-code-nix";
+    opencode.url = "github:anomalyco/opencode";
   };
 
   outputs =

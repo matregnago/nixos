@@ -105,11 +105,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = [
-    inputs.claude-code.overlays.default
-    inputs.opencode.overlays.default
-  ];
-
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -126,7 +121,6 @@
     libpq
     podman-compose
     openssl
-    pkgs.cudaPackages_13.nsight_systems
     xwayland-satellite
   ];
 

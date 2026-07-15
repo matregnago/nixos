@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -17,41 +22,43 @@
     ./noctalia/default.nix
     ./doom-emacs/default.nix
   ];
-  home.packages = with pkgs; [
-    vlc
-    telegram-desktop
-    discord
-    obsidian
-    zed-editor
-    keepassxc
-    cudaPackages.nsight_systems
-    claude-code
-    opencode
-    jdk25
-    lsof
-    thunderbird
-    pass
-    nodejs
-    wl-clipboard
-    lazygit
-    stremio-linux-shell
-    stripe-cli
-    github-copilot-cli
-    nil
-    nixd
-    vscode
-    gh
-    rustup
-    unixtools.netstat
-    zathura
-    busybox
-    vscode-json-languageserver
-    chromium
-    fastfetch
-    blender
-    xwayland-satellite # xwayland support
-    fzf
-  ];
+  home.packages =
+    (with pkgs; [
+      vlc
+      telegram-desktop
+      discord
+      obsidian
+      zed-editor
+      keepassxc
+      jdk25
+      lsof
+      thunderbird
+      pass
+      nodejs
+      wl-clipboard
+      lazygit
+      stremio-linux-shell
+      stripe-cli
+      github-copilot-cli
+      nil
+      nixd
+      vscode
+      gh
+      rustup
+      unixtools.netstat
+      zathura
+      busybox
+      vscode-json-languageserver
+      chromium
+      fastfetch
+      blender
+      xwayland-satellite # xwayland support
+      fzf
+    ])
+    ++ [
+      inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ];
 
   programs.home-manager.enable = true;
 
