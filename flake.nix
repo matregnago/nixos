@@ -55,10 +55,19 @@
       };
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.lain = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
+          ./hosts/lain/configuration.nix
+          home-manager.nixosModules.home-manager
+          (mkHomeManager "matheus")
+        ];
+      };
+
+      nixosConfigurations.kaori = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/kaori/configuration.nix
           home-manager.nixosModules.home-manager
           (mkHomeManager "matheus")
         ];

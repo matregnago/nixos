@@ -21,6 +21,7 @@
     ./niri/default.nix
     ./noctalia/default.nix
     ./doom-emacs/default.nix
+    ./kanshi.nix
   ];
   home.packages =
     (with pkgs; [
@@ -54,6 +55,17 @@
       blender
       xwayland-satellite # xwayland support
       fzf
+      fd
+      gcc
+      pkg-config
+      gnupg
+      gnumake
+      podman-compose
+      openssl
+      vim
+      wget
+      ripgrep
+      coreutils
     ])
     ++ [
       inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default

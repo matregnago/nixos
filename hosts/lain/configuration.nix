@@ -18,7 +18,7 @@
   boot.loader.grub.useOSProber = true;
 
   hardware.bluetooth.enable = true;
-  networking.hostName = "nixos";
+  networking.hostName = "lain";
   networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
   # Enable networking
@@ -105,24 +105,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    ripgrep
-    coreutils
-    fd
-    gcc
-    pkg-config
-    gnupg
-    gnumake
-    (python3.withPackages (ps: [ ps.pip ]))
-    postgresql_17
-    postgresql_17.lib
-    libpq
-    podman-compose
-    openssl
-    xwayland-satellite
-  ];
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -185,6 +167,26 @@
   };
 
   programs.niri.enable = true;
+
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      "rebuild" = "sudo nixos-rebuild switch --flake ~/nixos-config#lain";
+      "ls" = "eza";
+    };
+    sessionVariables = {
+      PG_LIB_DIR = "/run/current-system/sw/lib";
+      PG_INCLUDE_DIR = "/run/current-system/sw/include";
+      PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
+    };
+    bashrcExtra = ''
+      eval "$(starship init bash)"
+      eval "$(direnv hook bash)"
+      [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+      export PATH="$HOME/.local/bin:$PATH"
+    '';
+  };
+
 
   system.stateVersion = "25.05";
 

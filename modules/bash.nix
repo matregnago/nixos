@@ -3,10 +3,6 @@
 {
   programs.bash = {
     enable = true;
-    shellAliases = {
-      "rebuild" = "sudo nixos-rebuild switch --flake ~/nixos-config#nixos";
-      "ls" = "eza";
-    };
     sessionVariables = {
       PG_LIB_DIR = "/run/current-system/sw/lib";
       PG_INCLUDE_DIR = "/run/current-system/sw/include";
