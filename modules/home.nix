@@ -22,6 +22,8 @@
     ./noctalia/default.nix
     ./doom-emacs/default.nix
     ./kanshi.nix
+    ./theme.nix
+    ./yazi.nix
   ];
   home.packages =
     (with pkgs; [
