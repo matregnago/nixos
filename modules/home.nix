@@ -47,7 +47,6 @@
       nixd
       vscode
       gh
-      rustup
       unixtools.netstat
       zathura
       busybox
@@ -68,6 +67,11 @@
       wget
       ripgrep
       coreutils
+      typescript-go
+      go
+      gopls
+      clang-tools
+     rust-bin.stable.latest.complete
     ])
     ++ [
       inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default

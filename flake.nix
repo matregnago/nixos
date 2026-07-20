@@ -23,6 +23,11 @@
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     claude-code.url = "github:sadjow/claude-code-nix";
     opencode.url = "github:anomalyco/opencode";
   };
@@ -36,6 +41,7 @@
       noctalia,
       spicetify-nix,
       nix-doom-emacs-unstraightened,
+      rust-overlay,
       ...
     }@inputs:
     let
@@ -52,6 +58,7 @@
             ./modules/home.nix
           ];
         };
+        nixpkgs.overlays = [ rust-overlay.overlays.default ];
       };
     in
     {

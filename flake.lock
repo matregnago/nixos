@@ -292,7 +292,28 @@
         "nixvim": "nixvim",
         "noctalia": "noctalia",
         "opencode": "opencode",
+        "rust-overlay": "rust-overlay",
         "spicetify-nix": "spicetify-nix"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784526465,
+        "narHash": "sha256-L37teKC6oINWG4PGZLIqbphMWvSQ0PEz+aWxAk+rIDw=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "58c6334db52d51fc5dd8877c90b01f00cf8a696b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "spicetify-nix": {
