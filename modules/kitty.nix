@@ -3,7 +3,7 @@
 {
   programs.kitty = {
     enable = true;
-    themeFile = "Catppuccin-Mocha";
+    themeFile = "GruvboxMaterialDarkHard";
     settings = {
       confirm_os_window_close = 0;
       enable_audio_bell = false;
