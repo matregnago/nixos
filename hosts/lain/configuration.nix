@@ -17,6 +17,10 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
 
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
+  };
+
   hardware.bluetooth.enable = true;
   networking.hostName = "lain";
   networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.

@@ -27,9 +27,12 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     claude-code.url = "github:sadjow/claude-code-nix";
     opencode.url = "github:anomalyco/opencode";
+    helium = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -42,6 +45,7 @@
       spicetify-nix,
       nix-doom-emacs-unstraightened,
       rust-overlay,
+      helium,
       ...
     }@inputs:
     let
