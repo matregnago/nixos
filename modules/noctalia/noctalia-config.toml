@@ -14,100 +14,14 @@ showCapsule = false
     start = [ "control-center", "workspaces", "sysmon", "weather" ]
     widget_spacing = 12
 
-        [[bar.widgets.left]]
-        colorizeDistroLogo = false
-        colorizeSystemIcon = "primary"
-        enableColorization = true
-        icon = "noctalia"
-        id = "ControlCenter"
-        useDistroLogo = true
-
-        [[bar.widgets.left]]
-        characterCount = 2
-        colorizeIcons = true
-        emptyColor = "none"
-        enableScrollWheel = true
-        focusedColor = "primary"
-        followFocusedScreen = false
-        fontWeight = "bold"
-        groupedBorderOpacity = 1
-        hideUnoccupied = false
-        iconScale = 0.80000000000000004
-        id = "Workspace"
-        labelMode = "index"
-        occupiedColor = "none"
-        pillSize = 0.69999999999999996
-        showApplications = false
-        showApplicationsHover = false
-        showBadge = true
-        showLabelsOnlyWhenOccupied = false
-        unfocusedIconsOpacity = 1
-
-        [[bar.widgets.right]]
-        compactMode = false
-        hideMode = "hidden"
-        hideWhenIdle = false
-        id = "MediaMini"
-        maxWidth = 145
-        panelShowAlbumArt = true
-        scrollingMode = "hover"
-        showAlbumArt = true
-        showArtistFirst = true
-        showProgressRing = true
-        showVisualizer = false
-        textColor = "none"
-        useFixedWidth = false
-        visualizerType = "linear"
-
-        [[bar.widgets.right]]
-        blacklist = []
-        chevronColor = "none"
-        colorizeIcons = false
-        drawerEnabled = true
-        hidePassive = false
-        id = "Tray"
-        pinned = []
-
-        [[bar.widgets.right]]
-        displayMode = "onhover"
-        iconColor = "none"
-        id = "Volume"
-        middleClickCommand = "pwvucontrol || pavucontrol"
-        textColor = "none"
-
-        [[bar.widgets.right]]
-        hideWhenZero = false
-        hideWhenZeroUnread = false
-        iconColor = "none"
-        id = "NotificationHistory"
-        showUnreadBadge = true
-        unreadBadgeColor = "primary"
-
-        [[bar.widgets.right]]
-        deviceNativePath = "__default__"
-        displayMode = "graphic"
-        hideIfIdle = false
-        hideIfNotDetected = true
-        id = "Battery"
-        showNoctaliaPerformance = false
-        showPowerProfiles = false
-
 [dock]
 enabled = false
 
-[general]
-avatarImage = "~/nixos-config/images/avatar/cat.jpg"
-radiusRatio = 0.20000000000000001
-
 [location]
 auto_locate = true
-monthBeforeDay = true
-
-[notifications]
-density = "compact"
 
 [plugins]
-enabled = []
+enabled = [ "noctalia/bongocat" ]
 
     [[plugins.source]]
     kind = "git"
@@ -120,11 +34,10 @@ enabled = []
     name = "community"
 
 [shell]
+avatar_path = "~/nixos-config/images/avatar/cat.jpg"
 screen_time_enabled = true
 
     [shell.panel]
-    launcher_categories = false
-    launcher_session_search = true
     open_near_click_control_center = true
 
 [theme]
@@ -142,17 +55,21 @@ enabled = true
 [widget.battery]
 display_mode = "graphic"
 
+[widget.cat]
+type = "noctalia/bongocat:cat"
+
 [widget.date]
 format = "{:%a, %d %b %y}"
+
+[widget.media]
+title_scroll = "on_hover"
 
 [widget.network]
 show_label = false
 
 [widget.sysmon]
-display = "text"
-
-[widget.volume]
-scroll_step = 1
+show_value = true
+visualization = "none"
 
 [widget.weather]
 show_condition = false
