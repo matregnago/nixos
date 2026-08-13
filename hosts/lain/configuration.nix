@@ -54,8 +54,12 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
+  services.displayManager = {
+    defaultSession = "niri";
+    sddm.enable = true;
+  };
+
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Configure keyboard layout

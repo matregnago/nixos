@@ -33,7 +33,6 @@
       obsidian
       zed-editor
       keepassxc
-      jdk25
       lsof
       thunderbird
       pass
@@ -51,9 +50,7 @@
       zathura
       busybox
       vscode-json-languageserver
-      chromium
       fastfetch
-      blender
       xwayland-satellite # xwayland support
       fzf
       fd
@@ -67,7 +64,6 @@
       wget
       ripgrep
       coreutils
-      typescript-go
       go
       gopls
       clang-tools

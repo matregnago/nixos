@@ -21,6 +21,17 @@
       }
       {
         profile = {
+          name = "office";
+          outputs = [
+            {
+              criteria = "LG Electronics LG ULTRAWIDE 0x0006347E";
+              mode = "2560x1080@74.991";
+            }
+          ];
+        };
+      }
+      {
+        profile = {
           name = "undocked";
           outputs = [
             {
