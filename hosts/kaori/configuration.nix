@@ -8,6 +8,7 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "kaori";
@@ -39,8 +40,12 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  services.displayManager = {
+    defaultSession = "niri";
+    sddm.enable = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
