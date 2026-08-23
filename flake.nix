@@ -34,6 +34,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     codex.url = "github:sadjow/codex-cli-nix";
+    mcsr = {
+      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -81,6 +85,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/kaori/configuration.nix
+          ./modules/mcsr/default.nix
           home-manager.nixosModules.home-manager
           (mkHomeManager "matheus")
         ];
