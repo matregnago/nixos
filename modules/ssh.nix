@@ -3,7 +3,7 @@
 {
   programs.ssh = {
     enable = true;
-    extraConfig = "
+    extraConfig = ''
         Host pcad
           Hostname gppd-hpc.inf.ufrgs.br
           ForwardAgent no
@@ -13,6 +13,11 @@
           Hostname access.grid5000.fr
           ForwardAgent no
           User mtregnag
-      ";
+
+        Host *.g5k
+          ProxyCommand ssh g5k -W "$(basename %h .g5k):%p"
+          ForwardAgent no
+          User mtregnag
+      '';
   };
 }
