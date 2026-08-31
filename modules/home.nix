@@ -17,7 +17,6 @@
     ./kitty.nix
     ./bash.nix
     ./spicetify.nix
-    ./nixvim/default.nix
     ./niri/default.nix
     ./noctalia/default.nix
     ./doom-emacs/default.nix

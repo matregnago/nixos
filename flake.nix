@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +41,6 @@
       self,
       nixpkgs,
       home-manager,
-      nixvim,
       noctalia,
       spicetify-nix,
       nix-doom-emacs-unstraightened,
@@ -61,7 +56,6 @@
         home-manager.extraSpecialArgs = { inherit inputs; };
         home-manager.users."${username}" = {
           imports = [
-            nixvim.homeModules.nixvim
             noctalia.homeModules.default
             spicetify-nix.homeManagerModules.spicetify
             nix-doom-emacs-unstraightened.homeModule
