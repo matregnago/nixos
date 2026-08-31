@@ -32,6 +32,17 @@
       }
       {
         profile = {
+          name = "lab";
+          outputs = [
+            {
+              criteria = "Dell Inc. DELL U2723QE 2HBV7P3";
+              mode = "3840x2160@59.997";
+            }
+          ];
+        };
+      }
+      {
+        profile = {
           name = "undocked";
           outputs = [
             {
