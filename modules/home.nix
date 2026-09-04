@@ -68,6 +68,7 @@
       clang-tools
       python3
       ghostty
+      rtk
      rust-bin.stable.latest.complete
     ])
     ++ [
