@@ -73,7 +73,6 @@
     ])
     ++ [
       inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
-      inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.codex.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
