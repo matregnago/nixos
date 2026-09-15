@@ -23,10 +23,13 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    claude-code.url = "github:sadjow/claude-code-nix";
     helium = {
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    llm-agents = {
+     url = "github:numtide/llm-agents.nix";
+     inputs.nixpkgs.follows = "nixpkgs";
     };
     codex.url = "github:sadjow/codex-cli-nix";
   };

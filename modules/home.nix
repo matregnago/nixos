@@ -4,7 +4,12 @@
   inputs,
   ...
 }:
-
+let
+  system = pkgs.stdenv.hostPlatform.system;
+  llm-agents = inputs.llm-agents.packages.${system};
+  helium = inputs.helium.packages.${system}.default;
+  # codex = inputs.codex.packages.${system}.default;
+  in
 {
   imports = [
     ./eza.nix
@@ -31,23 +36,18 @@
       discord
       obsidian
       zed-editor
-      keepassxc
       lsof
       thunderbird
-      pass
       nodejs
       wl-clipboard
       lazygit
       stremio-linux-shell
       stripe-cli
-      github-copilot-cli
       nil
       nixd
-      vscode
       gh
       unixtools.netstat
       zathura
-      busybox
       vscode-json-languageserver
       fastfetch
       xwayland-satellite # xwayland support
@@ -67,14 +67,14 @@
       gopls
       clang-tools
       python3
-      ghostty
-      rtk
-     rust-bin.stable.latest.complete
+      nixfmt
+      rust-bin.stable.latest.complete
     ])
     ++ [
-      inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
-      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
-      inputs.codex.packages.${pkgs.stdenv.hostPlatform.system}.default
+      helium
+      llm-agents.claude-code
+      llm-agents.codex
+      llm-agents.rtk
     ];
 
   programs.home-manager.enable = true;
