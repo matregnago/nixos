@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -8,7 +7,6 @@ let
   system = pkgs.stdenv.hostPlatform.system;
   llm-agents = inputs.llm-agents.packages.${system};
   helium = inputs.helium.packages.${system}.default;
-  # codex = inputs.codex.packages.${system}.default;
   in
 {
   imports = [
@@ -73,8 +71,7 @@ let
     ++ [
       helium
       llm-agents.claude-code
-      llm-agents.codex
-      llm-agents.rtk
+      llm-agents.opencode
     ];
 
   programs.home-manager.enable = true;

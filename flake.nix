@@ -31,7 +31,6 @@
      url = "github:numtide/llm-agents.nix";
      inputs.nixpkgs.follows = "nixpkgs";
     };
-    codex.url = "github:sadjow/codex-cli-nix";
   };
 
   outputs =
@@ -44,7 +43,6 @@
       nix-doom-emacs-unstraightened,
       rust-overlay,
       helium,
-      codex,
       ...
     }@inputs:
     let
