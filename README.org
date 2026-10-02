@@ -3,3 +3,4 @@ My personal flake config. I manage system configs for my desktop and my laptop.
 
 - kaori: desktop
 - lain: laptop
+- mahiru: server

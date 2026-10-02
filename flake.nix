@@ -28,8 +28,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     llm-agents = {
-     url = "github:numtide/llm-agents.nix";
-     inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pterodactyl = {
+      url = "github:PadowYT2/pterodactyl.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -43,6 +47,7 @@
       nix-doom-emacs-unstraightened,
       rust-overlay,
       helium,
+      pterodactyl,
       ...
     }@inputs:
     let
@@ -77,6 +82,14 @@
           ./hosts/kaori/configuration.nix
           home-manager.nixosModules.home-manager
           (mkHomeManager "matheus")
+        ];
+      };
+      nixosConfigurations.mahiru = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/mahiru/configuration.nix
+          pterodactyl.nixosModules.default
+          { nixpkgs.overlays = [ pterodactyl.overlays.default ]; }
         ];
       };
     };
