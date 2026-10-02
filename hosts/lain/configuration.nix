@@ -33,8 +33,7 @@
     "8.8.8.8"
   ];
 
-  networking.extraHosts = ''
-  '';
+  networking.extraHosts = "";
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -104,7 +103,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
@@ -122,14 +120,18 @@
   ];
 
   virtualisation = {
-    containers.enable = true;
+    containers = {
+      enable = true;
+      registries.settings.unqualified-search-registries = [
+        "docker.io"
+      ];
+    };
     podman = {
       enable = true;
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
     };
   };
-
 
   services.postgresql = {
     enable = true;
