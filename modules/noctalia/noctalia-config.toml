@@ -2,17 +2,39 @@
 density = "compact"
 marginHorizontal = 5
 marginVertical = 5
+order = [ "widgets" ]
 outerCorners = true
 position = "top"
 showCapsule = false
 
     [bar.widgets]
-    center = [ "clock", "date" ]
-    end = [ "media", "notifications", "network", "volume", "battery", "session" ]
+    center = [ "clock", "date", "weather" ]
+    end = [ "media", "network", "volume", "battery", "tray", "notifications" ]
     margin_edge = 0
     margin_ends = 0
-    start = [ "control-center", "workspaces", "sysmon", "weather" ]
+    start = [ "control-center", "workspaces", "group:g1" ]
     widget_spacing = 12
+
+        [[bar.widgets.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "sysmon", "temp", "ram", "Disk" ]
+        opacity = 1.0
+        padding = 6.0
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
 
 [dock]
 enabled = false
@@ -20,8 +42,99 @@ enabled = false
 [location]
 auto_locate = true
 
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-3", "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1317.0
+    output = "DP-3"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 588.0
+    output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 768.0
+    cy = 741.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
 [plugins]
-enabled = [ "noctalia/bongocat" ]
+enabled = []
 
     [[plugins.source]]
     kind = "git"
@@ -34,23 +147,41 @@ enabled = [ "noctalia/bongocat" ]
     name = "community"
 
 [shell]
-avatar_path = "~/nixos-config/images/avatar/cat.jpg"
+avatar_path = "/home/matheus/nixos-config/images/avatar/cat.jpg"
 screen_time_enabled = true
 
     [shell.panel]
     open_near_click_control_center = true
 
 [theme]
-builtin = "Gruvbox"
+builtin = "Catppuccin"
+community_palette = "Catppuccin Macchiato Pink"
 mode = "dark"
 source = "builtin"
+wallpaper_scheme = "m3-content"
 
 [wallpaper]
 directory = "~/nixos-config/images/wallpapers"
 enabled = true
 
     [wallpaper.default]
-    path = "~/nixos-config/images/wallpapers/wallhaven-qr327r_2560x1080.png"
+    path = "/home/matheus/nixos-config/images/wallpapers/penguin.webp"
+
+    [wallpaper.last]
+    path = "/home/matheus/nixos-config/images/wallpapers/penguin.webp"
+
+    [wallpaper.monitors.DP-3]
+    path = "/home/matheus/nixos-config/images/wallpapers/penguin.webp"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/matheus/nixos-config/images/wallpapers/planet.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/matheus/nixos-config/images/wallpapers/penguin.webp"
+
+[widget.Disk]
+stat = "disk_used"
+type = "sysmon"
 
 [widget.battery]
 display_mode = "graphic"
@@ -65,11 +196,14 @@ format = "{:%a, %d %b %y}"
 title_scroll = "on_hover"
 
 [widget.network]
-show_label = false
+show_label = true
 
 [widget.sysmon]
 show_value = true
 visualization = "none"
+
+[widget.tray]
+drawer_item_size = 19.0
 
 [widget.weather]
 show_condition = false
