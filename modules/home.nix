@@ -7,7 +7,8 @@ let
   system = pkgs.stdenv.hostPlatform.system;
   llm-agents = inputs.llm-agents.packages.${system};
   helium = inputs.helium.packages.${system}.default;
-  in
+  codex = inputs.codex-cli-nix.packages.${system}.default;
+in
 {
   imports = [
     ./eza.nix
@@ -66,10 +67,12 @@ let
       clang-tools
       python3
       nixfmt
+      uv
       rust-bin.stable.latest.complete
     ])
     ++ [
       helium
+      codex
       llm-agents.claude-code
       llm-agents.opencode
     ];
