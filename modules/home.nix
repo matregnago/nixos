@@ -75,6 +75,7 @@ in
       codex
       llm-agents.claude-code
       llm-agents.opencode
+      llm-agents.omp
     ];
 
   programs.home-manager.enable = true;
