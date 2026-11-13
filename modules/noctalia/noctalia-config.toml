@@ -154,8 +154,7 @@ screen_time_enabled = true
     open_near_click_control_center = true
 
 [theme]
-builtin = "Catppuccin"
-community_palette = "Catppuccin Macchiato Pink"
+builtin = "Nord"
 mode = "dark"
 source = "builtin"
 wallpaper_scheme = "m3-content"

@@ -74,8 +74,7 @@ in
       helium
       codex
       llm-agents.claude-code
-      llm-agents.opencode
-      llm-agents.omp
+      llm-agents.t3code-desktop
     ];
 
   programs.home-manager.enable = true;
