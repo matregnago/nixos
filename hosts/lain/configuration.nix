@@ -33,7 +33,10 @@
     "8.8.8.8"
   ];
 
-  networking.extraHosts = "";
+  networking.extraHosts = ''
+    0.0.0.0 ingest.t3.codes
+    0.0.0.0 www.ingest.t3.codes
+  '';
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";

@@ -44,7 +44,6 @@ in
       stripe-cli
       nil
       nixd
-      gh
       unixtools.netstat
       zathura
       vscode-json-languageserver
