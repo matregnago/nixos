@@ -48,7 +48,8 @@
       tree
     ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGnANeIWYTbQSqZ3F+n2OvP+SLDn3gmXhGKeGVP1c60C"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIqHKeHT8K+S4mS6lWrN5vE/bFnKvSuiicJ7b3/oblle"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGZnFb36p8boRGFdUU6BayIo4Jf9BX5j2HWk80ftPeEp"
     ];
   };
 
