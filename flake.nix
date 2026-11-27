@@ -37,6 +37,7 @@
       url = "github:PadowYT2/pterodactyl.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs =
@@ -50,6 +51,7 @@
       rust-overlay,
       helium,
       pterodactyl,
+      hermes-agent,
       ...
     }@inputs:
     let
@@ -91,6 +93,7 @@
         modules = [
           ./hosts/mahiru/configuration.nix
           pterodactyl.nixosModules.default
+          hermes-agent.nixosModules.default
           { nixpkgs.overlays = [ pterodactyl.overlays.default ]; }
         ];
       };

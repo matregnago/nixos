@@ -130,6 +130,13 @@
     };
   };
 
+   services.hermes-agent = {
+    enable = true;
+    addToSystemPackages = true;
+  };
+   
+   services.tailscale.enable = true;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
